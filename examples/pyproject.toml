@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+optional_dependencies = ["missing_dependency", "vendor_only_package"]
+optional_dependencies_any = false
+optional_dependencies_action = "skip"

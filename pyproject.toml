@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytest-optional-dependencies"
+version = "0.1.0"
+description = "Don't test code that won't load due to missing imports. A pytest plugin to skip tests that require optional dependencies that are not installed."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["pytest>=8.0"]
+authors = [{ name = "Brian Okken" }]
+keywords = ["pytest", "plugin", "collection", "imports", "testing"]
+classifiers = [
+  "Framework :: Pytest",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Testing",
+]
+
+[project.urls]
+Homepage = "https://github.com/okken/pytest-optional-dependencies"
+Repository = "https://github.com/okken/pytest-optional-dependencies"
+Issues = "https://github.com/okken/pytest-optional-dependencies/issues"
+
+[project.entry-points.pytest11]
+optional-dependencies = "pytest_optional_dependencies.plugin"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "tox>=4.0", "hatchling>=1.25"]
+
+[dependency-groups]
+dev = ["coverage[toml]>=7.0", "ruff>=0.6.0", "build>=1.2.0", "twine>=5.1.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-ra"
+testpaths = ["tests"]
+pytester_example_dir = "examples"
+
+[tool.coverage.run]
+branch = true
+source = ["pytest_optional_dependencies", "tests"]
+concurrency = ["multiprocessing"]
+parallel = true
+sigterm = true
+
+[tool.coverage.report]
+fail_under = 100
