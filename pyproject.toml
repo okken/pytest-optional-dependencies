@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pytest-optional-dependencies"
-version = "0.1.1"
+version = "0.1.2"
 description = "Don't test code that won't load due to missing imports. A pytest plugin to skip tests that require optional dependencies that are not installed."
 readme = "README.md"
 license = { text = "MIT" }

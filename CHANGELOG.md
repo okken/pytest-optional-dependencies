@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file.
 
 ### Nothing her yet
 
-## 0.1.1
+## 0.1.2
 
 ### Added
 
